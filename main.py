@@ -86,7 +86,7 @@ def help(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
             ]
 
             ]
-            reply_markup = InlineKeyboardMarkup(buttons)
+
 # check for user access
 def checkuser(message):
     if auth != "" or ban != "":
