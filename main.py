@@ -51,8 +51,8 @@ def echo(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
             ]
 
             ]
-
             reply_markup = InlineKeyboardMarkup(buttons)
+            
 
     
 # help command
