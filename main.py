@@ -26,11 +26,11 @@ from split import TG_SPLIT_SIZE
 
 # app
 
-bot_token = os.environ.get("TOKEN", "") 
+bot_token = os.environ.get("TOKEN", "5319828937:AAGRsc8z4OCEsK6esVdWd2HPXDaCZHsG-Mw") 
 
-api_hash = os.environ.get("HASH", "") 
+api_hash = os.environ.get("HASH", "3eba5d471162181b8a3f7f5c0a23c307") 
 
-api_id = os.environ.get("ID", "")
+api_id = os.environ.get("ID", "4682685")
 
 app = Client("my_bot",api_id=api_id, api_hash=api_hash,bot_token=bot_token)
 
@@ -48,7 +48,7 @@ def echo(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 
     if not checkuser(message):
 
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id,reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("𝐓𝐑𝐔𝐌𝐁𝐎𝐓𝐒", url="https://t.me/movie_time_botonly")]]),[[InlineKeyboardButton("🧑‍💻 DEV",url="https://t.me/fligher")
+        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id,reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("𝐓𝐑𝐔𝐌𝐁𝐎𝐓𝐒", url="https://t.me/movie_time_botonly")]],[[InlineKeyboardButton("🧑‍💻 DEV",url="https://t.me/fligher")]]))
 
         return
 
