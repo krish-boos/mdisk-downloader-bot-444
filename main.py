@@ -269,7 +269,7 @@ def down(message,link):
 
         if not os.path.exists(ele):
 
-            app.send_message(message.chat.id,"**👨‍💻Error in Merging File contact our Support👨‍💻**",reply_to_message_id=message.id)
+            app.send_message(message.chat.id,"**👨‍💻Error in Merging File contact our Support👨‍💻**",reply_to_message_id=message.id,
             reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
 
             return
@@ -316,7 +316,7 @@ def down(message,link):
 
     if check == 0:
 
-        app.send_message(message.chat.id,"**IF YOU SEE THIS MESSAGE THE VIDEO/FILE PLAY ONLY [MX PLAYER]**, \n\nThis happens because either the **file** or **video** doesn't have separate **audio layer**__",reply_to_message_id=message.id)
+        app.send_message(message.chat.id,"**IF YOU SEE THIS MESSAGE THE VIDEO/FILE PLAY ONLY [MX PLAYER]**, \n\nThis happens because either the **file** or **video** doesn't have separate **audio layer**__",reply_to_message_id=message.id,
         reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
     if os.path.exists(f'{message.id}upstatus.txt'):
 
