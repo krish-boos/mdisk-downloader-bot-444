@@ -26,7 +26,7 @@ from split import TG_SPLIT_SIZE
 
 # app
 
-bot_token = os.environ.get("TOKEN", "5319828937:AAGRsc8z4OCEsK6esVdWd2HPXDaCZHsG-Mw") 
+bot_token = os.environ.get("TOKEN", "5547113554:AAETQSL73_XfkcXN351sq1kT29qMe3_3Vw8") 
 
 api_hash = os.environ.get("HASH", "3eba5d471162181b8a3f7f5c0a23c307") 
 
@@ -52,9 +52,9 @@ def echo(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 
         return
 
-    app.send_message(message.chat.id, '**Hi, I am Mdisk Video Downloader, you can watch Videos without MX Player.\n__Send me a link to Start...__**',reply_to_message_id=message.id,
+    app.send_message(message.chat.id, '**Hi, I am Mdisk Video Downloader, you can watch Videos without MX Player.\n\n__Send me a link to Start...__**',reply_to_message_id=message.id,
 
-    reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("𝐓𝐑𝐔𝐌𝐁𝐎𝐓𝐒", url="https://t.me/movie_time_botonly")]]))
+    reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("🏆𝐓𝐑𝐔𝐌𝐁𝐎𝐓𝐒🏆", url="https://t.me/movie_time_botonly")]]))
     
     
 # help command
@@ -149,7 +149,7 @@ def status(folder,message,fsize):
 
         try:
 
-            app.edit_message_text(message.chat.id, message.id, f"⬇️__Downloaded__⬇️ : **{size} **__of__**  {fsize:.1f}M**")
+            app.edit_message_text(message.chat.id, message.id, f"⬇️__Downloaded__⬇️ : **{size} **__of__**  {fsize:.1f}MB**")
 
             time.sleep(10)
 
@@ -177,7 +177,7 @@ def upstatus(statusfile,message):
 
         try:
 
-            app.edit_message_text(message.chat.id, message.id, f"⬆️__Uploaded__⬆️ : **{txt}**")
+            app.edit_message_text(message.chat.id, message.id, f"⬆️__Uploaded__⬆️ : **{txt}__of__ {fsize:.1f}MB **")
 
             time.sleep(10)
 
@@ -199,7 +199,7 @@ def down(message,link):
 
     # checking link and download with progress thread
 
-    msg = app.send_message(message.chat.id, '🌀__Downloading__🌀', reply_to_message_id=message.id)
+    msg = app.send_message(message.chat.id, '🌀__Downloading__🌐__Initiated__🌀', reply_to_message_id=message.id)
 
     size = mdisk.getsize(link)
 
@@ -239,7 +239,7 @@ def down(message,link):
 
         flist = [file]
 
-    app.edit_message_text(message.chat.id, msg.id, "⬆️__Uploading__⬆️")
+    app.edit_message_text(message.chat.id, msg.id, "⬆️__Uploading__🌐__initiated__⬆️")
 
     i = 1
 
@@ -294,7 +294,7 @@ def down(message,link):
 
                 thumb,duration,width,height = mediainfo.allinfo(ele,thumbfile)
 
-                app.send_video(message.chat.id, video=ele, caption=f"{partt}**{filename}**", thumb=thumb, duration=duration, height=height, width=width, reply_to_message_id=message.id, progress=progress, progress_args=[message])
+                app.send_video(message.chat.id, video=ele, caption=f"{partt}**{filename}\n By ©️ @movie_time_botonly**", thumb=thumb, duration=duration, height=height, width=width, reply_to_message_id=message.id, progress=progress, progress_args=[message])
 
                 if "-thumb.jpg" not in thumb:
 
@@ -302,7 +302,7 @@ def down(message,link):
 
         else:
 
-                app.send_document(message.chat.id, document=ele, caption=f"{partt}**{filename}**", thumb=thumbfile, force_document=True, reply_to_message_id=message.id, progress=progress, progress_args=[message])
+                app.send_document(message.chat.id, document=ele, caption=f"{partt}**{filename}\n By ©️ @movie_time_botonly**", thumb=thumbfile, force_document=True, reply_to_message_id=message.id, progress=progress, progress_args=[message])
 
         
 
