@@ -177,7 +177,7 @@ def upstatus(statusfile,message):
 
         try:
 
-            app.edit_message_text(message.chat.id, message.id, f"⬆️__Uploaded__⬆️ : **{txt}__of__ {fsize:.1f}MB **")
+            app.edit_message_text(message.chat.id, message.id, f"__Uploaded__ : **{txt}**")
 
             time.sleep(10)
 
