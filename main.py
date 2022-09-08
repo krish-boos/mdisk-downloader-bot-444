@@ -48,7 +48,7 @@ def echo(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 
     if not checkuser(message):
 
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id,reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("𝐓𝐑𝐔𝐌𝐁𝐎𝐓𝐒", url="https://t.me/movie_time_botonly")]],[[InlineKeyboardButton("🧑‍💻 DEV",url="https://t.me/fligher")]]))
+        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🉑ASK ACESS🉑",url="https://t.me/fligher")]]))
 
         return
 
@@ -89,7 +89,7 @@ def help(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 
     app.send_message(message.chat.id, helpmessage, reply_to_message_id=message.id,
 
-    reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("🧑‍💻 𝐃𝐄𝐕",url="https://t.me/fligher")]]))
+    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🧑‍💻 𝐃𝐄𝐕",url="https://t.me/fligher")]]))
     
 # check for user access
 
@@ -270,7 +270,7 @@ def down(message,link):
         if not os.path.exists(ele):
 
             app.send_message(message.chat.id,"**👨‍💻Error in Merging File contact our Support👨‍💻**",reply_to_message_id=message.id,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
 
             return
 
@@ -317,7 +317,7 @@ def down(message,link):
     if check == 0:
 
         app.send_message(message.chat.id,"**IF YOU SEE THIS MESSAGE THE VIDEO/FILE PLAY ONLY [MX PLAYER]**, \n\nThis happens because either the **file** or **video** doesn't have separate **audio layer**__",reply_to_message_id=message.id,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
     if os.path.exists(f'{message.id}upstatus.txt'):
 
         os.remove(f'{message.id}upstatus.txt')
