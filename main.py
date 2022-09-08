@@ -55,7 +55,7 @@ def echo(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
     app.send_message(message.chat.id, '**Hi, I am Mdisk Video Downloader, you can watch Videos without MX Player.\n__Send me a link to Start...__**',reply_to_message_id=message.id,
 
     reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("𝐓𝐑𝐔𝐌𝐁𝐎𝐓𝐒", url="https://t.me/movie_time_botonly")]]))
-    reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("🧑‍💻 𝐃𝐄𝐕",url="https://t.me/fligher")]]))
+    
     
 # help command
 
@@ -85,11 +85,11 @@ def help(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 
 **/show** - show Thumbnail
 
-**/change** - change upload mode ( default mode is Document )__"""
+**/change** - change upload mode ( default mode is Document📂 )__"""
 
     app.send_message(message.chat.id, helpmessage, reply_to_message_id=message.id,
 
-    reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("𝐓𝐑𝐔𝐌𝐁𝐎𝐓𝐒", url="https://t.me/movie_time_botonly")]]))
+    reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("🧑‍💻 𝐃𝐄𝐕",url="https://t.me/fligher")]]))
     
 # check for user access
 
@@ -149,7 +149,7 @@ def status(folder,message,fsize):
 
         try:
 
-            app.edit_message_text(message.chat.id, message.id, f"__Downloaded__ : **{size} **__of__**  {fsize:.1f}M**")
+            app.edit_message_text(message.chat.id, message.id, f"⬇️__Downloaded__⬇️ : **{size} **__of__**  {fsize:.1f}M**")
 
             time.sleep(10)
 
@@ -177,7 +177,7 @@ def upstatus(statusfile,message):
 
         try:
 
-            app.edit_message_text(message.chat.id, message.id, f"__Uploaded__ : **{txt}**")
+            app.edit_message_text(message.chat.id, message.id, f"⬆️__Uploaded__⬆️ : **{txt}**")
 
             time.sleep(10)
 
@@ -199,13 +199,13 @@ def down(message,link):
 
     # checking link and download with progress thread
 
-    msg = app.send_message(message.chat.id, '__Downloading__', reply_to_message_id=message.id)
+    msg = app.send_message(message.chat.id, '🌀__Downloading__🌀', reply_to_message_id=message.id)
 
     size = mdisk.getsize(link)
 
     if size == 0:
 
-        app.edit_message_text(message.chat.id, msg.id,"__**Invalid Link**__")
+        app.edit_message_text(message.chat.id, msg.id,"❌__**Invalid Link**__❌")
 
         return
 
@@ -219,7 +219,7 @@ def down(message,link):
 
     if file == None:
 
-        app.edit_message_text(message.chat.id, msg.id,"__**Invalid Link**__")
+        app.edit_message_text(message.chat.id, msg.id,"❌__**Invalid Link**__❌")
 
         return
 
@@ -229,7 +229,7 @@ def down(message,link):
 
     if(size > TG_SPLIT_SIZE):
 
-        app.edit_message_text(message.chat.id, msg.id, "__Splitting__")
+        app.edit_message_text(message.chat.id, msg.id, "✂️__Splitting__✂️")
 
         flist = split.split_file(file,size,file,".", TG_SPLIT_SIZE)
 
@@ -239,7 +239,7 @@ def down(message,link):
 
         flist = [file]
 
-    app.edit_message_text(message.chat.id, msg.id, "__Uploading__")
+    app.edit_message_text(message.chat.id, msg.id, "⬆️__Uploading__⬆️")
 
     i = 1
 
@@ -269,7 +269,8 @@ def down(message,link):
 
         if not os.path.exists(ele):
 
-            app.send_message(message.chat.id,"**Error in Merging File**",reply_to_message_id=message.id)
+            app.send_message(message.chat.id,"**👨‍💻Error in Merging File contact our Support👨‍💻**",reply_to_message_id=message.id)
+            reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
 
             return
 
@@ -315,8 +316,8 @@ def down(message,link):
 
     if check == 0:
 
-        app.send_message(message.chat.id,"__Can't remove the **restriction**, you have to use **MX player** to play this **video**\n\nThis happens because either the **file** length is **too small** or **video** doesn't have separate **audio layer**__",reply_to_message_id=message.id)
-
+        app.send_message(message.chat.id,"**IF YOU SEE THIS MESSAGE THE VIDEO/FILE PLAY ONLY [MX PLAYER]**, \n\nThis happens because either the **file** or **video** doesn't have separate **audio layer**__",reply_to_message_id=message.id)
+        reply_markup=InlineKeyboardMarkup([[InlineKeyBoardButton("**SUPPORT**",url="https://t.me/TRUMBOTCHAT")]]))
     if os.path.exists(f'{message.id}upstatus.txt'):
 
         os.remove(f'{message.id}upstatus.txt')
@@ -353,7 +354,7 @@ def mdiskdown(client: pyrogram.client.Client, message: pyrogram.types.messages_a
 
         pass
 
-    app.send_message(message.chat.id, '**Send only __MDisk Link__ with command followed by the link**',reply_to_message_id=message.id)
+    app.send_message(message.chat.id, '**Send only __MDisk Link__ with command followed by the link\n\n Do not be over smart👺**',reply_to_message_id=message.id)
 
 # thumb command
 
@@ -373,7 +374,7 @@ def thumb(client: pyrogram.client.Client, message: pyrogram.types.messages_and_m
 
         if int(message.reply_to_message.document.file_size) > 200000:
 
-            app.send_message(message.chat.id, '**Thumbline size allowed is < 200 KB**',reply_to_message_id=message.id)
+            app.send_message(message.chat.id, '**Thumbline size allowed is < 200 KB😡**',reply_to_message_id=message.id)
 
             return
 
@@ -383,7 +384,7 @@ def thumb(client: pyrogram.client.Client, message: pyrogram.types.messages_and_m
 
         os.rename(file,f'{message.from_user.id}-thumb.jpg')
 
-        app.send_message(message.chat.id, '**Thumbnail is Set**',reply_to_message_id=message.id)
+        app.send_message(message.chat.id, '**Thumbnail is Set✅**',reply_to_message_id=message.id)
 
     except:
 
@@ -411,7 +412,7 @@ def showthumb(client: pyrogram.client.Client, message: pyrogram.types.messages_a
 
     else:
 
-        app.send_message(message.chat.id, '**Thumbnail is not Set**',reply_to_message_id=message.id)
+        app.send_message(message.chat.id, '**Thumbnail is not Set☑️**',reply_to_message_id=message.id)
 
 # remove thumbline command
 
@@ -435,11 +436,11 @@ def removethumb(client: pyrogram.client.Client, message: pyrogram.types.messages
 
         os.remove(f'{message.from_user.id}-thumb.jpg')
 
-        app.send_message(message.chat.id, '**Thumbnail is Removed**',reply_to_message_id=message.id)
+        app.send_message(message.chat.id, '**Thumbnail is Removed🚮**',reply_to_message_id=message.id)
 
     else:
 
-        app.send_message(message.chat.id, '**Thumbnail is not Set**',reply_to_message_id=message.id)
+        app.send_message(message.chat.id, '**Thumbnail is not Set😤**',reply_to_message_id=message.id)
 
 # thumbline
 
@@ -461,7 +462,7 @@ def ptumb(client: pyrogram.client.Client, message: pyrogram.types.messages_and_m
 
     os.rename(file,f'{message.from_user.id}-thumb.jpg')
 
-    app.send_message(message.chat.id, '**Thumbnail is Set**',reply_to_message_id=message.id)
+    app.send_message(message.chat.id, '**Thumbnail is Set✅**',reply_to_message_id=message.id)
 
     
 
@@ -487,11 +488,11 @@ def change(client: pyrogram.client.Client, message: pyrogram.types.messages_and_
 
     if info == "V":
 
-        app.send_message(message.chat.id, '__Mode changed from **Video** format to **Document** format__',reply_to_message_id=message.id)
+        app.send_message(message.chat.id, '__Mode changed from **🎞Video🎞** format to **📂Document📂** format__',reply_to_message_id=message.id)
 
     else:
 
-        app.send_message(message.chat.id, '__Mode changed from **Document** format to **Video** format__',reply_to_message_id=message.id)
+        app.send_message(message.chat.id, '__Mode changed from **📂Document📂** format to **🎞Video🎞** format__',reply_to_message_id=message.id)
 
         
 
@@ -539,7 +540,7 @@ def mdisktext(client: pyrogram.client.Client, message: pyrogram.types.messages_a
 
     else:
 
-        app.send_message(message.chat.id, '**Send only __MDisk Link__**',reply_to_message_id=message.id)
+        app.send_message(message.chat.id, '**Send only __MDisk Link__ Bruh>>>>.........**',reply_to_message_id=message.id)
 
 # polling
 
