@@ -1,1 +1,1 @@
-python -m http.server $PORT
+python -m $PORT
